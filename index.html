@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tomito Clone</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Texto "Session" -->
+    <div class="session-text-div">
+      <p class="session-text-p">Session</p>
+    </div>
+
+    <!-- Círculo del temporizador -->
+    <div class="timer-circle">
+      <div class="timer-text" contenteditable="true">25:00</div>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="action-buttons">
+      <button class="action-button">Start</button>
+      <button class="action-button-2">Change session</button>
+    </div>
+
+    <!-- Botones de incremento -->
+    <div class="increment-buttons">
+      <button class="increment-button" data-minutes="5">+5 Minutos</button>
+      <button class="increment-button" data-minutes="25">+25 Minutos</button>
+    </div>
+
+    <!-- Botón de reiniciar -->
+    <button class="reset-button">Reiniciar</button>
+
+    <!-- Barra de progreso -->
+    <div class="progress-bar-container">
+      <div class="progress-bar"></div>
+    </div>
+
+    <!-- Círculos encima de la barra de progreso -->
+    <div class="circles-container">
+      <div class="circle progress"></div>
+      <div class="circle background"></div>
+      <div class="circle progress"></div>
+      <div class="circle background"></div>
+    </div>
+
+    <!-- Modal para cambiar el título -->
+    <div id="title-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Cambiar título</h2>
+        <input type="text" id="new-title-input" placeholder="Nuevo título">
+        <button id="save-title-button">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

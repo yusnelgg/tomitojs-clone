@@ -1,0 +1,277 @@
+/* Estilos generales */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff; /* Fondo claro */
+  font-family: Arial, sans-serif;
+  color: #333; /* Color de texto principal */
+}
+
+/* Contenedor principal */
+.container {
+  text-align: center;
+}
+
+/* Círculo del temporizador */
+.timer-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Texto del temporizador */
+.timer-text {
+  font-size: 96px; /* Texto más grande */
+  font-weight: bold;
+  color: #333; /* Color de texto oscuro */
+  font-family: monospace;
+  outline: none; /* Eliminar el borde al editar */
+  border: 2px solid transparent; /* Borde transparente por defecto */
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.timer-text[contenteditable="true"] {
+  border-color: #ccc; /* Borde visible cuando es editable */
+}
+
+/* Texto "Session" */
+.session-text-div {
+  background-color: #f3f3ff; /* Color de texto gris */
+  margin-top: 20px;
+  width: max-content;
+  border-radius: 50px;
+  place-self: center;
+  margin-bottom: 10px;
+}
+
+.session-text-p {
+  font-size: 18px;
+  padding: 4px 11px;
+  color: #8884ff; /* Color de texto gris */
+}
+
+/* Botones de acción */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 3px; /* Espacio entre los botones */
+}
+
+.action-button {
+  padding: 10px 16px;
+  font-size: 18px;
+  font-family: monospace;
+  font-weight: bolder;
+  border: none;
+  border-radius: 10px 0px 0px 10px;
+  cursor: pointer;
+  color: #333;
+  background-color: #e6e6e6;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-button-2 {
+  padding: 10px 16px;
+  font-size: 18px;
+  font-family: monospace;
+  font-weight: bolder;
+  border: none;
+  border-radius: 0px 10px 10px 0px;
+  cursor: pointer;
+  color: #333;
+  background-color: #e6e6e6;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-button:hover,
+.action-button-2:hover {
+  background-color: #cfcfcf; /* Color más oscuro al pasar el mouse */
+  transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+}
+
+.action-button:active,
+.action-button-2:active {
+  transform: scale(0.95); /* Efecto de clic */
+}
+
+/* Botones de incremento */
+.increment-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espacio entre los botones */
+  margin-top: 20px;
+}
+
+.increment-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  background-color: #5E81AC; /* Color azul */
+  transition: background-color 0.3s ease;
+}
+
+.increment-button:hover {
+  background-color: #4C6A8C; /* Color azul más oscuro al pasar el mouse */
+}
+
+/* Botón de reiniciar */
+.reset-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  background-color: #BF616A; /* Color rojo */
+  transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: #A54A54; /* Color rojo más oscuro al pasar el mouse */
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: monospace;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #e0e0e0;
+}
+
+/* Mostrar el dropdown al hacer clic */
+.dropdown.active .dropdown-content {
+  display: block;
+}
+
+/* Barra de progreso */
+.progress-bar-container {
+  position: fixed; /* Fija la barra en la parte inferior */
+  bottom: 20px; /* Margen inferior */
+  left: 20px; /* Margen izquierdo */
+  right: 20px; /* Margen derecho */
+  width: calc(100% - 40px); /* Ancho total menos los márgenes */
+  height: 10px;
+  background-color: #d9d8ef; /* Nuevo color de fondo de la barra */
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 0%; /* Inicialmente vacía */
+  height: 100%;
+  background-color: #8783ff; /* Color de la barra de progreso */
+  border-radius: 5px;
+  transition: width 1s linear; /* Animación suave */
+}
+
+/* Círculos encima de la barra de progreso */
+.circles-container {
+  position: fixed; /* Fija los círculos en la parte inferior */
+  bottom: 35px; /* Posición encima de la barra */
+  right: 20px; /* Alineados a la derecha */
+  display: flex;
+  gap: 8px; /* Espacio entre los círculos */
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.circle.progress {
+  background-color: #8783ff; /* Color de la barra de progreso */
+}
+
+.circle.background {
+  background-color: #d9d8ef; /* Color de fondo de la barra */
+}
+
+/* Modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#new-title-input {
+  width: 92%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#save-title-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #8783ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#save-title-button:hover {
+  background-color: #6c68d6;
+}
